@@ -1,0 +1,23 @@
+1.DBA의 메소드의 결과값은 무조건 json으로 반환
+
+2. DB 테이블 구조를 json으로 나타내면 이렇게 나오게....
+-필드명은 바꿔도 되나 꼭 db.details에 수정사항을 적어줘야함
+-TEXT의 배열을 하나의 TEXT로 나타내야 하면 각 요소는 ★로 구준 지어주면 됨
+  -ex ['a', 'b', 'c'] => 'a★b★c' 이런 식으로 변환
+
+category = {
+    num : INT
+    category : TEXT
+}
+
+porb_choice = {
+    num : INT
+    source : TEXT ,
+    category: category.num,
+    title: TEXT,
+    choices : [TEXT, TEXT, TEXT, ...],
+    picture : [TEXT, TEXT, TEXT, ...],
+    anwser : INT
+}
+
+3. DB 파일의 위치는 Agent 인스턴스 생성 시에 지정하기 (무조건 절대 경로로)
